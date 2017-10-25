@@ -6,7 +6,7 @@ import FilterString from './FilterString';
 import Palindrome from './Palindrome';
 import Sum from './Sum';
 
-class TopicBrowser extends Component {
+export default class TopicBrowser extends Component {
   render() {
     return(
       <div>

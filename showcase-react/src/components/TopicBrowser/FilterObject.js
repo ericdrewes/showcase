@@ -1,59 +1,71 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class FilterObject extends Component {
+	constructor() {
+		super()
 
-  constructor() {
-    super();
+		this.state = {
+			employees: [
+				{
+					name: 'Mr. Robot',
+					title: 'Hacker',
+					age: 28
+				},
+				{
+					name: 'Jeremy Piven',
+					age: 52,
+					hairColor: 'brown'
+				},
+				{
+					name: 'Lance Armstrong',
+					age: 40,
+					title: 'Bicyclist'
+				}
+			],
 
-    this.state = {
-      employees: [
-        {
-          name: 'Mr. Robot',
-          title: 'Hacker',
-          age: 28,
-        },
-        {
-          name: 'Jeremy Piven',
-          age: 52,
-          hairColor: 'brown'
-        },
-        {
-          name: 'Lance Armstrong',
-          title: 'Bicyclist',
-        }
-      ],
+			userInput: '',
+			filteredEmployees: []
+		}
+	}
 
-      userInput: '',
-      filteredEmployees: []
-    }
-  }
+	handleChange(val) {
+		this.setState({ userInput: val })
+	}
 
-  handleChange(val) {
-    this.setState({ userInput: val });
-  }
+	filterEmployees(prop) {
+		var employees = this.state.employees
+		var filteredEmployees = []
 
-  filterEmployees(prop) {
-    var employees = this.state.employees;
-    var filteredEmployees = [];
+		for (var i = 0; i < employees.length; i++) {
+			if (employees[i].hasOwnProperty(prop)) {
+				filteredEmployees.push(employees[i])
+			}
+		}
 
-    for ( var i = 0; i < employees.length; i++ ) {
-      if ( employees[i].hasOwnProperty(prop) ) {
-        filteredEmployees.push(employees[i]);
-      }
-    }
+		this.setState({ filteredEmployees: filteredEmployees })
+	}
 
-    this.setState({ filteredEmployees: filteredEmployees });
-  }
-
-  render() {
-    return (
-      <div className='puzzleBox filterObjectPB'>
-        <h4> Filter Object </h4>
-        <input className='inputLine' onChange={ (e) => this.handleChange(e.target.value) }></input>
-        <button className='confirmationButton' onClick={ () => this.filterEmployees(this.state.userInput) }> Filter </button>
-        <span className='puzzleText'> Original: { JSON.stringify(this.state.employees, null, 10) } </span>
-        <span className='resultsBox filterObjectRB'> Filtered: { JSON.stringify(this.state.filteredEmployees, null, 10) } </span>
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div className="puzzleBox filterObjectPB">
+				<h4> Filter Object </h4>
+				<input className="inputLine" onChange={e => this.handleChange(e.target.value)} />
+				<button
+					className="confirmationButton"
+					onClick={() => this.filterEmployees(this.state.userInput)}
+				>
+					{' '}
+					Filter{' '}
+				</button>
+				<span className="puzzleText">
+					{' '}
+					Original: {JSON.stringify(this.state.employees, null, 10)}{' '}
+				</span>
+				<span className="resultsBox filterObjectRB">
+					{' '}
+					Filtered: {JSON.stringify(this.state.filteredEmployees, null, 10)}{' '}
+				</span>
+			</div>
+		)
+	}
 }
