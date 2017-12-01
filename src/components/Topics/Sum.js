@@ -29,14 +29,14 @@ export default class Sum extends Component {
 				<input
 					className="inputLine"
 					type="number"
-					onChange={e => this.updateNumber1(e.target.value)}
+					onChange={(e) => this.updateNumber1(e.target.value)}
 				>
 					{' '}
 				</input>
 				<input
 					className="inputLine"
 					type="number"
-					onChange={e => this.updateNumber2(e.target.value)}
+					onChange={(e) => this.updateNumber2(e.target.value)}
 				>
 					{' '}
 				</input>
