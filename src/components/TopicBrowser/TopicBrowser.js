@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 // the topic$:
-import EvenAndOdd from './Topics/EvenAndOdd';
-import FilterObject from './Topics/FilterObject';
-import FilterString from './Topics/FilterString';
-import Palindrome from './Topics/Palindrome';
-import Sum from './Topics/Sum';
+import EvenAndOdd from '../Topics/EvenAndOdd';
+import FilterObject from '../Topics/FilterObject';
+import FilterString from '../Topics/FilterString';
+import Palindrome from '../Topics/Palindrome';
+import Sum from '../Topics/Sum';
 
 
 

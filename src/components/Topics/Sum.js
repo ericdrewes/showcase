@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Sum extends Component {
+class Sum extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -30,16 +30,13 @@ export default class Sum extends Component {
 					className="inputLine"
 					type="number"
 					onChange={(e) => this.updateNumber1(e.target.value)}
-				>
-					{' '}
-				</input>
+				/>
 				<input
 					className="inputLine"
 					type="number"
 					onChange={(e) => this.updateNumber2(e.target.value)}
-				>
-					{' '}
-				</input>
+				/>
+			
 				<button
 					className="confirmationButton"
 					onClick={() => this.add(this.state.number1, this.state.number2)}
@@ -52,3 +49,4 @@ export default class Sum extends Component {
 		)
 	}
 }
+export default Sum;
